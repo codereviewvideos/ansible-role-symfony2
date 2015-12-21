@@ -13,3 +13,7 @@
 
 - include: doctrine_schema_update.yml
   when: "symfony2_doctrine_schema_update != []"
+
+- include: create_cache.yml
+
+- include: creare_logs.yml
