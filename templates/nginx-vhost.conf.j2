@@ -4,7 +4,7 @@ server {
     server_name localhost {{ ansible_fqdn }};
     root {{ symfony2_project_root }}/web;
 
-    error_log {{ symfony2_project_root }}/app/logs/nginx.log;
+    error_log /var/log/nginx/{{ symfony2_project_root }}_nginx.log;
 
     location / {
         # try to serve file directly, fallback to app.php

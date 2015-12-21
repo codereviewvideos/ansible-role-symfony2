@@ -1,5 +1,10 @@
 ---
+- name: "check for existence of composer.json"
+  stat: path="/var/www/{{ ansible_fqdn }}/composer.json"
+  register: composer_json_file_exists
+
 - name: "run composer install"
   command: composer install --ignore-platform-reqs
   args:
     chdir: "{{ symfony2_project_root }}"
+  when: composer_json_file_exists.stat.exists
