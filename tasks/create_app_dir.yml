@@ -1,0 +1,6 @@
+- name: symfony app dir
+  file: >
+    path="{{ symfony2_project_root }}/app"
+    state=directory
+    owner="{{ nginx_user }}" group="{{ nginx_group }}"
+  sudo: yes

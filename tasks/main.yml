@@ -15,5 +15,6 @@
   when: "symfony2_doctrine_schema_update != []"
 
 
+- include: create_app_dir.yml
 - include: create_cache.yml
 - include: create_logs.yml

@@ -2,6 +2,7 @@
   file: >
     path="{{ symfony2_cache_path }}"
     state=directory
+    owner="{{ nginx_user }}" group="{{ nginx_group }}"
   sudo: yes
 
 - name: acl symfony 2
