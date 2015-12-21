@@ -2,14 +2,15 @@
   file: >
     path="{{ symfony2_log_path }}"
     state=directory
+    owner="{{ nginx_user }}" group="{{ nginx_group }}"
   sudo: yes
 
 - name: acl symfony 2
   shell: >
-    setfacl -R -m u:www-data:rwX -m g:www-data:rwX {{ symfony2_log_path }}
+    setfacl -R -m u:{{ nginx_user }}:rwX -m g:{{ nginx_group }}:rwX {{ symfony2_log_path }}
   sudo: yes
 
 - name: acl default symfony 2
   shell: >
-    setfacl -dR -m u:www-data:rwx -m g:www-data:rwX {{ symfony2_log_path }}
+    setfacl -dR -m u:{{ nginx_user }}:rwx -m g:{{ nginx_group }}:rwX {{ symfony2_log_path }}
   sudo: yes
