@@ -14,5 +14,6 @@ symfony2_clear_cache: true
 symfony2_doctrine_schema_update: [] # List of objects with properties "em" and "env"
 
 # not very useful for customisation, but ok for the needs of one site per box
-symfony2_cache_path: "{{ symfony2_project_root }}/{{ ansible_fqdn }}/app/cache"
-symfony2_log_path: "{{ symfony2_project_root }}/{{ ansible_fqdn }}/app/logs"
+# don't need ansible_fqdn here, as likely the symfony2_project_root has been overridden in the playbook or vars
+symfony2_cache_path: "{{ symfony2_project_root }}/app/cache"
+symfony2_log_path: "{{ symfony2_project_root }}/app/logs"
