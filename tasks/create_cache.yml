@@ -1,15 +1,15 @@
 - name: cache symfony 2
   file: >
-    path="{{ cache_path }}"
+    path="{{ symfony2_cache_path }}"
     state=directory
   sudo: yes
 
 - name: acl symfony 2
   shell: >
-    setfacl -R -m u:www-data:rwX -m g:www-data:rwX {{ cache_path }}
+    setfacl -R -m u:www-data:rwX -m g:www-data:rwX {{ symfony2_cache_path }}
   sudo: yes
 
 - name: acl default symfony 2
   shell: >
-    setfacl -dR -m u:www-data:rwx -m g:www-data:rwX {{ cache_path }}
+    setfacl -dR -m u:www-data:rwx -m g:www-data:rwX {{ symfony2_cache_path }}
   sudo: yes
