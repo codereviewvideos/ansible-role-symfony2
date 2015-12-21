@@ -11,6 +11,7 @@ server {
         try_files $uri /app.php$is_args$args;
     }
 
+    {% if symfony_environment !== 'production' %}
     # DEV
     # This rule should only be placed on your development environment
     # In production, don't include this and don't deploy app_dev.php or config.php
@@ -21,6 +22,7 @@ server {
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
         fastcgi_param DOCUMENT_ROOT $realpath_root;
     }
+    {% endif %}
 
     # PROD
     location ~ ^/app\.php(/|$) {

@@ -1,4 +1,7 @@
 ---
+
+symfony_environment: production
+
 symfony2_project_root: /var/www
 symfony2_web_server: nginx
 symfony2_php_fpm_socket: localhost:9000
