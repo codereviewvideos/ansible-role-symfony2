@@ -1,6 +1,6 @@
 # Ansible Role: Symfony 2
 
-An Ansible role that can configure a Symfony 2 application.
+An Ansible role that can configure a Symfony (2, or 3) application.
 
 ## Requirements
 
@@ -13,23 +13,25 @@ Composer has to be installed in PATH as "composer" for running "composer install
 Available variables are listed below, along with default values:
 
 ```
-symfony_environment: production 
+symfony_environment: production
 
-symfony2_project_root: /var/www
-symfony2_web_server: nginx
-symfony2_php_fpm_socket: localhost:9000
+symfony_website_domain_name: "{{ ansible_fqdn }}"
+
+symfony_project_root: /var/www
+symfony_web_server: nginx
+symfony_php_fpm_socket: localhost:9000
 
 symfony2_bash_completion: true
 
-symfony2_composer_install: true
-symfony2_clear_cache: true
+symfony_composer_install: true
+symfony_clear_cache: true
 
-symfony2_doctrine_schema_update: [] # List of objects with properties "em" and "env"
+symfony_doctrine_schema_update: [] # List of objects with properties "em" and "env"
 
 # not very useful for customisation, but ok for the needs of one site per box
 # don't need ansible_fqdn here, as likely the symfony2_project_root has been overridden in the playbook or vars
-symfony2_cache_path: "{{ symfony2_project_root }}/app/cache"
-symfony2_log_path: "{{ symfony2_project_root }}/app/logs"
+symfony_cache_path: "{{ symfony_project_root }}/app/cache"
+symfony_log_path: "{{ symfony_project_root }}/app/logs"
 ```
 
 ## Dependencies
