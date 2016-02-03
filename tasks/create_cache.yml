@@ -7,12 +7,12 @@
     recurse=true
   sudo: yes
 
-- name: symfony acl 
+- name: symfony acl - cache
   shell: >
     setfacl -R -m u:{{ nginx_user }}:rwX -m g:{{ nginx_group }}:rwX {{ symfony_cache_path }}
   sudo: yes
 
-- name: symfony acl default 
+- name: symfony acl default - cache
   shell: >
     setfacl -dR -m u:{{ nginx_user }}:rwx -m g:{{ nginx_group }}:rwX {{ symfony_cache_path }}
   sudo: yes
