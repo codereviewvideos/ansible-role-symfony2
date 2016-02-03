@@ -2,7 +2,7 @@
 
 symfony_environment: production
 
-symfony_site_domain_name: "{{ ansible_fqdn }}"
+symfony_website_domain_name: "{{ ansible_fqdn }}"
 
 symfony_project_root: /var/www
 symfony_web_server: nginx
