@@ -1,18 +1,18 @@
 ---
 - include: nginx.yml
-  when: "symfony2_web_server == 'nginx'"
+  when: "symfony_web_server == 'nginx'"
 
 - include: bash_completion.yml
   when: symfony2_bash_completion
 
 - include: composer.yml
-  when: symfony2_composer_install
+  when: symfony_composer_install
 
 - include: clear_cache.yml
-  when: symfony2_clear_cache
+  when: symfony_clear_cache
 
 - include: doctrine_schema_update.yml
-  when: "symfony2_doctrine_schema_update != []"
+  when: "symfony_doctrine_schema_update != []"
 
 
 - include: create_app_dir.yml
