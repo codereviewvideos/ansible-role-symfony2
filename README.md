@@ -29,7 +29,7 @@ symfony_clear_cache: true
 symfony_doctrine_schema_update: [] # List of objects with properties "em" and "env"
 
 # not very useful for customisation, but ok for the needs of one site per box
-# don't need ansible_fqdn here, as likely the symfony2_project_root has been overridden in the playbook or vars
+# don't need ansible_fqdn here, as likely the symfony_project_root has been overridden in the playbook or vars
 symfony_cache_path: "{{ symfony_project_root }}/app/cache"
 symfony_log_path: "{{ symfony_project_root }}/app/logs"
 ```
