@@ -2,5 +2,5 @@
 - name: "ensure doctrine schema is updated"
   shell: "php app/console doctrine:schema:validate -q --em={{ item.em }} --env={{ item.env }} || php app/console doctrine:schema:update --force --em={{ item.em }} --env={{ item.env }}"
   args:
-    chdir: "{{ symfony2_project_root }}"
-  with_items: symfony2_doctrine_schema_update
+    chdir: "{{ symfony_project_root }}"
+  with_items: symfony_doctrine_schema_update
