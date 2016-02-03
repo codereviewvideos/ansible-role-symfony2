@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: mjanser
-  description: Configures a Symfony 2 applications
+  description: Configures a Symfony applications
   license: MIT
   min_ansible_version: 1.6
   platforms:
