@@ -1,11 +1,11 @@
 server {
     listen 80;
 
-    server_name localhost {{ symfony_site_domain_name }};
+    server_name localhost {{ symfony_website_domain_name }};
     root {{ symfony_project_root }}/web;
 
-    access_log /var/log/nginx/{{ symfony_site_domain_name | replace(".", "_") }}-access.log;
-    error_log  /var/log/nginx/{{ symfony_site_domain_name | replace(".", "_") }}-error.log error;
+    access_log /var/log/nginx/{{ symfony_website_domain_name | replace(".", "_") }}-access.log;
+    error_log  /var/log/nginx/{{ symfony_website_domain_name | replace(".", "_") }}-error.log error;
 
     location / {
         # try to serve file directly, fallback to app.php
