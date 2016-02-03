@@ -2,5 +2,5 @@
 - name: "clear symfony cache"
   command: "rm -rf app/cache/*"
   args:
-    chdir: "{{ symfony2_project_root }}"
+    chdir: "{{ symfony_project_root }}"
 
