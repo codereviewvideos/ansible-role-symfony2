@@ -1,11 +1,11 @@
 server {
     listen 80;
 
-    server_name localhost {{ ansible_fqdn }};
-    root {{ symfony2_project_root }}/web;
+    server_name localhost {{ symfony_site_domain_name }};
+    root {{ symfony_project_root }}/web;
 
-    access_log /var/log/nginx/{{ ansible_fqdn | replace(".", "_") }}-access.log;
-    error_log  /var/log/nginx/{{ ansible_fqdn | replace(".", "_") }}-error.log error;
+    access_log /var/log/nginx/{{ symfony_site_domain_name | replace(".", "_") }}-access.log;
+    error_log  /var/log/nginx/{{ symfony_site_domain_name | replace(".", "_") }}-error.log error;
 
     location / {
         # try to serve file directly, fallback to app.php
@@ -16,8 +16,8 @@ server {
     # DEV
     # This rule should only be placed on your development environment
     # In production, don't include this and don't deploy app_dev.php or config.php
-    location ~ ^/(app_dev|config)\.php(/|$) {
-        fastcgi_pass {{ symfony2_php_fpm_socket }};
+    location ~ ^/(app_.*|config)\.php(/|$) {
+        fastcgi_pass {{ symfony_php_fpm_socket }};
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
@@ -27,7 +27,7 @@ server {
 
     # PROD
     location ~ ^/app\.php(/|$) {
-        fastcgi_pass {{ symfony2_php_fpm_socket }};
+        fastcgi_pass {{ symfony_php_fpm_socket }};
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
         fastcgi_param  SCRIPT_FILENAME  $realpath_root$fastcgi_script_name;
