@@ -8,13 +8,13 @@
 - name: "ensure nginx site configuration is installed"
   template:
     src: nginx-vhost.conf.j2
-    dest: "/etc/nginx/sites-available/{{ ansible_fqdn }}.conf"
+    dest: "/etc/nginx/sites-available/{{ symfony_website_domain_name }}.conf"
   sudo: yes
 
 - name: "ensure nginx site configuration is enabled"
   file:
-    src: "/etc/nginx/sites-available/{{ ansible_fqdn }}.conf"
-    dest: "/etc/nginx/sites-enabled/{{ ansible_fqdn }}.conf"
+    src: "/etc/nginx/sites-available/{{ symfony_website_domain_name }}.conf"
+    dest: "/etc/nginx/sites-enabled/{{ symfony_website_domain_name }}.conf"
     state: link
   sudo: yes
   notify: "restart web server"
