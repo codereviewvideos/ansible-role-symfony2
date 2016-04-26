@@ -2,17 +2,18 @@
   file: >
     path="{{ symfony_log_path }}"
     state=directory
-    owner="{{ nginx_user }}" group="{{ nginx_group }}"
+    owner="{{ symfony_web_server_user }}"
+    group="{{ symfony_web_server_group }}"
     mode=0775
     recurse=true
   sudo: yes
 
 - name: symfony acl - logs
   shell: >
-    setfacl -R -m u:{{ nginx_user }}:rwX -m g:{{ nginx_group }}:rwX {{ symfony_log_path }}
+    setfacl -R -m u:{{ symfony_web_server_user }}:rwX -m g:{{ symfony_web_server_group }}:rwX {{ symfony_log_path }}
   sudo: yes
 
 - name: symfony acl default - logs
   shell: >
-    setfacl -dR -m u:{{ nginx_user }}:rwx -m g:{{ nginx_group }}:rwX {{ symfony_log_path }}
+    setfacl -dR -m u:{{ symfony_web_server_user }}:rwx -m g:{{ symfony_web_server_group }}:rwX {{ symfony_log_path }}
   sudo: yes

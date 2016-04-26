@@ -1,6 +1,6 @@
 ---
 - name: "check for existence of composer.json"
-  stat: path="/var/www/{{ symfony_website_domain_name }}/composer.json"
+  stat: path="{{ symfony_project_root }}/composer.json"
   register: composer_json_file_exists
 
 - name: "run composer install"

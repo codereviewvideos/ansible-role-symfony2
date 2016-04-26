@@ -1,6 +1,7 @@
 ---
 - name: "restart web server"
   sudo: yes
+
   service:
     name: "{{ symfony_web_server }}"
     state: restarted

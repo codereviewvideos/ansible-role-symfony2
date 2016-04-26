@@ -1,7 +1,4 @@
 ---
-- include: nginx.yml
-  when: "symfony_web_server == 'nginx'"
-
 - include: bash_completion.yml
   when: symfony2_bash_completion
 
