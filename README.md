@@ -25,7 +25,7 @@ symfony_project_root: "/var/www/{{ symfony_website_domain_name }}"
 
 symfony_web_server: "nginx"
 symfony_web_server_user: "www-data"
-symfony_web_server_group: "nginx"
+symfony_web_server_group: "www-data"
 
 symfony2_bash_completion: true
 
