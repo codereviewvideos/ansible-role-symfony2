@@ -1,6 +1,8 @@
-# Ansible Role: Symfony 2
+# Ansible Role: Symfony 3
 
-An Ansible role that can configure a Symfony (2, or 3) application.
+An Ansible role that can configure a Symfony 3 application.
+
+The repo name is unfortunate. 
 
 Never heard of Ansible? It's an awesome system's automation / management tool - you can [watch a tutorial series on Ansible 1.x at CodeReviewVideos][1].
 
