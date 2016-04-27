@@ -3,4 +3,4 @@
   command: composer install --ignore-platform-reqs
   args:
     chdir: "{{ item.root_directory }}"
-  with_items: {{ symfony_websites }}
+  with_items: "{{ symfony_websites }}"
