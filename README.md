@@ -2,7 +2,7 @@
 
 An Ansible role that can configure a Symfony 3 application.
 
-The repo name is unfortunate. 
+The repo name is unfortunate.
 
 Never heard of Ansible? It's an awesome system's automation / management tool - you can [watch a tutorial series on Ansible 1.x at CodeReviewVideos][1].
 
@@ -20,8 +20,6 @@ Composer has to be installed in PATH as "composer" for running "composer install
 Available variables are listed below, along with default values:
 
 ```
-symfony_project_root: "/var/www/{{ ansible_fqdn }}"
-
 symfony_web_server: "nginx"
 symfony_web_server_user: "www-data"
 symfony_web_server_group: "www-data"
@@ -30,11 +28,6 @@ symfony2_bash_completion: true
 
 symfony_composer_install: true
 symfony_clear_cache: true
-
-# not very useful for customisation, but ok for the needs of one site per box
-# don't need ansible_fqdn here, as likely the symfony2_project_root has been overridden in the playbook or vars
-symfony_cache_path: "{{ symfony_project_root }}/var/cache"
-symfony_log_path: "{{ symfony_project_root }}/var/logs"
 ```
 
 ## Dependencies

@@ -7,8 +7,3 @@ symfony2_bash_completion: true
 
 symfony_composer_install: true
 symfony_clear_cache: true
-
-# not very useful for customisation, but ok for the needs of one site per box
-# don't need ansible_fqdn here, as likely the symfony2_project_root has been overridden in the playbook or vars
-symfony_cache_path: "{{ symfony_project_root }}/var/cache"
-symfony_log_path: "{{ symfony_project_root }}/var/logs"
