@@ -5,13 +5,6 @@
 - include: composer.yml
   when: symfony_composer_install
 
-- include: clear_cache.yml
-  when: symfony_clear_cache
-
-- include: doctrine_schema_update.yml
-  when: "symfony_doctrine_schema_update != []"
-
-
-- include: create_app_dir.yml
+- include: create_symfony_dir.yml
 - include: create_cache.yml
 - include: create_logs.yml

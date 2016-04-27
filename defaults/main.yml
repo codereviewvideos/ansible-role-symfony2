@@ -1,10 +1,4 @@
 ---
-
-symfony_environment: production
-
-symfony_website_domain_name: "{{ ansible_fqdn }}"
-symfony_project_root: "/var/www/{{ symfony_website_domain_name }}"
-
 symfony_web_server: "nginx"
 symfony_web_server_user: "www-data"
 symfony_web_server_group: "www-data"
@@ -13,8 +7,6 @@ symfony2_bash_completion: true
 
 symfony_composer_install: true
 symfony_clear_cache: true
-
-symfony_doctrine_schema_update: [] # List of objects with properties "em" and "env"
 
 # not very useful for customisation, but ok for the needs of one site per box
 # don't need ansible_fqdn here, as likely the symfony2_project_root has been overridden in the playbook or vars

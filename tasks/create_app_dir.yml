@@ -1,9 +1,0 @@
-- name: symfony app dir
-  file: >
-    path="{{ symfony_project_root }}/app"
-    state=directory
-    owner="{{ symfony_web_server_user }}"
-    group="{{ symfony_web_server_group }}"
-    mode=0775
-    recurse=true
-  sudo: yes

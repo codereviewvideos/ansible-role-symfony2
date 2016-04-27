@@ -1,19 +1,22 @@
 - name: symfony cache
   file: >
-    path="{{ symfony_cache_path }}"
+    path="{{ item.cache_directory || symfony_cache_path }}"
     state=directory
-    owner="{{ symfony_web_server_user }}"
-    group="{{ symfony_web_server_group }}"
+    owner="{{ item.root_directory_owning_user || symfony_web_server_user }}"
+    group="{{ item.root_directory_owning_group || symfony_web_server_group }}"
     mode=0775
     recurse=true
   sudo: yes
+  with_items: {{ symfony_websites }}
 
 - name: symfony acl - cache
   shell: >
-    setfacl -R -m u:{{ symfony_web_server_user }}:rwX -m g:{{ symfony_web_server_group }}:rwX {{ symfony_cache_path }}
+    setfacl -R -m u:{{ item.root_directory_owning_user || symfony_web_server_user }}:rwX -m g:{{ item.root_directory_owning_user || symfony_web_server_group }}:rwX {{ item.cache_directory || symfony_cache_path }}
   sudo: yes
+  with_items: {{ symfony_websites }}
 
 - name: symfony acl default - cache
   shell: >
-    setfacl -dR -m u:{{ symfony_web_server_user }}:rwx -m g:{{ symfony_web_server_group }}:rwX {{ symfony_cache_path }}
+    setfacl -dR -m u:{{ item.root_directory_owning_group || symfony_web_server_user }}:rwx -m g:{{ item.root_directory_owning_group || symfony_web_server_group }}:rwX {{ item.cache_directory || symfony_cache_path }}
   sudo: yes
+  with_items: {{ symfony_websites }}

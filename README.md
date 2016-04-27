@@ -18,10 +18,7 @@ Composer has to be installed in PATH as "composer" for running "composer install
 Available variables are listed below, along with default values:
 
 ```
-symfony_environment: production
-
-symfony_website_domain_name: "{{ ansible_fqdn }}"
-symfony_project_root: "/var/www/{{ symfony_website_domain_name }}"
+symfony_project_root: "/var/www/{{ ansible_fqdn }}"
 
 symfony_web_server: "nginx"
 symfony_web_server_user: "www-data"
@@ -32,13 +29,10 @@ symfony2_bash_completion: true
 symfony_composer_install: true
 symfony_clear_cache: true
 
-symfony_doctrine_schema_update: [] # List of objects with properties "em" and "env"
-
 # not very useful for customisation, but ok for the needs of one site per box
 # don't need ansible_fqdn here, as likely the symfony2_project_root has been overridden in the playbook or vars
 symfony_cache_path: "{{ symfony_project_root }}/var/cache"
 symfony_log_path: "{{ symfony_project_root }}/var/logs"
-
 ```
 
 ## Dependencies
