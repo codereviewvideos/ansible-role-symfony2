@@ -2,4 +2,5 @@
 - name: "run composer install"
   command: composer install --ignore-platform-reqs
   args:
-    chdir: "{{ symfony_project_root }}"
+    chdir: "{{ item.root_directory }}"
+  with_items: {{ symfony_websites }}
