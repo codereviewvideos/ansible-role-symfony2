@@ -7,4 +7,4 @@
     mode=0775
     recurse=true
   sudo: yes
-  with_items: symfony_websites
+  with_items: "{{ symfony_websites }}"
