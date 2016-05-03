@@ -1,4 +1,6 @@
 ---
+- debug: var="{{ symfony_websites }}"
+
 - name: "run composer install"
   command: composer install --ignore-platform-reqs
   args:
