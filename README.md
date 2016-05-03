@@ -38,7 +38,11 @@ None
 
     - hosts: all
       roles:
-        - { role: symfony2 }
+        - role: symfony2
+          symfony_websites:
+            - root_directory: "/var/www/api.{{ ansible_fqdn }}"
+              log_directory: "/var/www/api.{{ ansible_fqdn }}/var/log"
+              cache_directory: "/var/www/api.{{ ansible_fqdn }}/var/cache"
 
 ## License
 

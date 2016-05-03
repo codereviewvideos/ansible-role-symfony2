@@ -1,6 +1,6 @@
 - name: symfony logs
   file: >
-    path="{{ item.log_directory | default(symfony_log_path) }}"
+    path="{{ item.log_directory }}"
     state=directory
     owner="{{ item.root_directory_owning_user | default(symfony_web_server_user) }}"
     group="{{ item.root_directory_owning_group | default(symfony_web_server_group) }}"
@@ -11,12 +11,12 @@
 
 - name: symfony acl - logs
   shell: >
-    setfacl -R -m u:{{ item.root_directory_owning_user | default(symfony_web_server_user) }}:rwX -m g:{{ item.root_directory_owning_user | default(symfony_web_server_group) }}:rwX {{ item.log_directory | default(symfony_log_path) }}
+    setfacl -R -m u:{{ item.root_directory_owning_user | default(symfony_web_server_user) }}:rwX -m g:{{ item.root_directory_owning_user | default(symfony_web_server_group) }}:rwX {{ item.log_directory }}
   sudo: yes
   with_items: "{{ symfony_websites }}"
 
 - name: symfony acl default - logs
   shell: >
-    setfacl -dR -m u:{{ item.root_directory_owning_group | default(symfony_web_server_user) }}:rwx -m g:{{ item.root_directory_owning_group | default(symfony_web_server_group) }}:rwX {{ item.log_directory | default(symfony_log_path) }}
+    setfacl -dR -m u:{{ item.root_directory_owning_group | default(symfony_web_server_user) }}:rwx -m g:{{ item.root_directory_owning_group | default(symfony_web_server_group) }}:rwX {{ item.log_directory}}
   sudo: yes
   with_items: "{{ symfony_websites }}"
