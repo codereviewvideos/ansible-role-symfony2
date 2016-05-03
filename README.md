@@ -44,6 +44,10 @@ None
               log_directory: "/var/www/api.{{ ansible_fqdn }}/var/log"
               cache_directory: "/var/www/api.{{ ansible_fqdn }}/var/cache"
 
+            - root_directory: "/var/www/other"
+              log_directory: "/var/www/other/var/log"
+              cache_directory: "/var/www/other/var/cache"
+
 ## License
 
 MIT
