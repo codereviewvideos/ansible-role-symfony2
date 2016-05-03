@@ -16,6 +16,6 @@
   with_items: "{{ symfony_websites }}"
 
 - name: symfony acl default - cache
-  shell: > symfony_web_server_user }}:rwx -m g:{{ item.root_directory_owning_group ||ymfony_web_server_group }}:rwX {{ item.cache_directory | symfony_cache_path }}
+  shell: > symfony_web_server_user }}:rwx -m g:{{ item.root_directory_owning_group | symfony_web_server_group }}:rwX {{ item.cache_directory | symfony_cache_path }}
   sudo: yes
   with_items: "{{ symfony_websites }}"
