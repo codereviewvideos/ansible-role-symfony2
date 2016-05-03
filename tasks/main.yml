@@ -1,10 +1,10 @@
 ---
-- include: bash_completion.yml
-  when: symfony2_bash_completion
+# - include: bash_completion.yml
+#   when: symfony2_bash_completion
 
 - include: composer.yml
   when: symfony_composer_install
 
-- include: create_symfony_dir.yml
-- include: create_cache.yml
-- include: create_logs.yml
+# - include: create_symfony_dir.yml
+# - include: create_cache.yml
+# - include: create_logs.yml
