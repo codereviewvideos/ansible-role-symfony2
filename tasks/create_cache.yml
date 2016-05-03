@@ -17,6 +17,6 @@
 
 - name: symfony acl default - cache
   shell: >
-    setfacl -dR -m u:{{ item.root_directory_owning_group | default(symfony_web_server_user) }}:rwx -m g:{{ item.root_directory_owning_group | default(symfony_web_server_group) }}:rwX {{ item.cache_directory | default(symfony_log_path) }}
+    setfacl -dR -m u:{{ item.root_directory_owning_group | default(symfony_web_server_user) }}:rwx -m g:{{ item.root_directory_owning_group | default(symfony_web_server_group) }}:rwX {{ item.cache_directory | default(symfony_cache_path) }}
   sudo: yes
   with_items: "{{ symfony_websites }}"
