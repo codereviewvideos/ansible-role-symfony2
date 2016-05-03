@@ -2,8 +2,8 @@
   file: >
     path="{{ item.root_directory }}"
     state=directory
-    owner="{{ item.root_directory_owning_user || symfony_web_server_user }}"
-    group="{{ item.root_directory_owning_group || symfony_web_server_group }}"
+    owner="{{ item.root_directory_owning_user | symfony_web_server_user }}"
+    group="{{ item.root_directory_owning_group | symfony_web_server_group }}"
     mode=0775
     recurse=true
   sudo: yes
